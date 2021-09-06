@@ -217,10 +217,11 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
             };
             webView.navigationDelegate = listener;
             webView.hidden = YES;
-            [webView loadData:responseData
-                     MIMEType:response.MIMEType
-        characterEncodingName:response.textEncodingName
-                      baseURL:response.URL];
+//            [webView loadData:responseData
+//                     MIMEType:response.MIMEType
+//        characterEncodingName:response.textEncodingName
+//                      baseURL:response.URL];
+            [webView loadRequest:[NSURLRequest requestWithURL:response.URL]];
             UIWindow *window = [UIApplication sharedApplication].windows.firstObject;
             [window addSubview:webView];
         });
